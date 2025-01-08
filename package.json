@@ -1,0 +1,33 @@
+{
+  "name": "store-api",
+  "version": "1.0.0",
+  "description": "Store APIs -Training Project-",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abdulrahman-Abdulhak/store-api.git"
+  },
+  "keywords": [
+    "store-api",
+    "training-project"
+  ],
+  "author": "Abdulrahman Abdulhak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abdulrahman-Abdulhak/store-api/issues"
+  },
+  "homepage": "https://github.com/Abdulrahman-Abdulhak/store-api#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.1",
+    "mysql2": "^3.11.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "type": "module"
+}
