@@ -9,8 +9,8 @@ class Products {
     return read({ all: true });
   }
 
-  static async add({ title, price }) {
-    const [{ insertId: id }] = await create({ title, price });
+  static async add({ title, price, company }) {
+    const [{ insertId: id }] = await create({ title, price, company });
     return await read({ id });
   }
 

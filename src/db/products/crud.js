@@ -68,6 +68,7 @@ export async function create({ title, price, company }) {
     { title, price, company },
     { userModifiable: true }
   );
+
   const missing = filteredObject.missingValues();
   if (missing.length) {
     throw new MissingValuesErrorDB(
@@ -80,10 +81,10 @@ export async function create({ title, price, company }) {
   const pool = await poolHostDB();
   const creation = await pool.query(
     `
-        INSERT INTO products (title, price)
-        VALUES (?, ?)
+        INSERT INTO products (title, price, company)
+        VALUES (?, ?, ?)
     `,
-    [title, price]
+    [title, price, company]
   );
 
   return creation;
@@ -93,7 +94,7 @@ export async function read({ id, all = false }) {
   const pool = await poolHostDB();
 
   if (all) {
-    const [[values]] = await pool.query("SELECT * FROM products");
+    const [values] = await pool.query("SELECT * FROM products");
     return values;
   }
 
