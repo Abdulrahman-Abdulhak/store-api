@@ -1,1 +1,1 @@
-export { default as CustomApiError } from "./CustomApiError.js";
+export * from "./api/index.js";

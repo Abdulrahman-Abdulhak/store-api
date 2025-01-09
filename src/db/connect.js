@@ -9,4 +9,22 @@ export const poolDB = async (url) => {
   });
 };
 
-export const poolHostDB = () => poolDB(process.env.DB_HOST);
+/**
+ * @type {mysql.Pool}
+ */
+let pool = null;
+export const poolHostDB = async () => {
+  if (!pool) pool = await poolDB(process.env.DB_HOST);
+  return pool;
+};
+
+export const testConnectionDB = async () => {
+  const pool = await poolHostDB();
+
+  try {
+    await pool.ping();
+    return true;
+  } catch (error) {
+    return false;
+  }
+};

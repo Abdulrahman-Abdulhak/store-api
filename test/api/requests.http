@@ -1,0 +1,51 @@
+@host = {{hostName}}:{{port}}
+@baseURL = {{protocol}}://{{host}}/api/{{version}}
+@productsURL = {{baseURL}}/products
+
+@contentType = "application/json"
+
+###
+#* A Single Product
+
+GET {{productsURL}}/1
+Content-Type: application/json
+
+###
+#* All Products
+
+GET {{productsURL}}
+Content-Type: application/json
+
+###
+#* Static Products
+
+GET {{productsURL}}/static
+Content-Type: application/json
+
+###
+#* Creating a new Product
+
+POST {{productsURL}}
+Content-Type: application/json
+
+{
+    "title": "Test",
+    "price": 0.99,
+    "company": "shit"
+}
+
+###
+#* Modify an existing Product
+
+PATCH {{productsURL}}/3
+Content-Type: application/json
+
+{
+    "company": "shit"
+}
+
+###
+#* Delete an existing Product
+
+DELETE {{productsURL}}/2
+Content-Type: application/json

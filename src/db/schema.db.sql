@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS store;
+USE store;
+-- 
+-- Main Table
+CREATE TABLE IF NOT EXISTS products(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title TINYTEXT NOT NULL,
+    price DECIMAL(12, 2) NOT NULL,
+    company TINYTEXT NOT NULL,
+    featured BOOLEAN NOT NULL DEFAULT FALSE,
+    rating FLOAT DEFAULT NULL,
+    created_at DATE DEFAULT (CURDATE())
+);
